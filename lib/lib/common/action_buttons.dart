@@ -40,8 +40,8 @@ class ActionButtons extends StatelessWidget {
               child: TextButton(
                   style: TextButton.styleFrom(
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                  onPressed: timeState.onOk,
-                  child: Text(timeState.widget.okText)),
+                  onPressed: timeState.widget.onCancel,
+                  child: Text(timeState.widget.cancelText)),
             ),
           ),
           const SizedBox(
@@ -57,10 +57,10 @@ class ActionButtons extends StatelessWidget {
               child: TextButton(
                   style: TextButton.styleFrom(
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                  onPressed: timeState.widget.onCancel,
-                  child: Text(timeState.widget.cancelText)),
+                  onPressed: timeState.onOk,
+                  child: Text(timeState.widget.okText)),
             ),
-          )
+          ),
         ],
       );
     }
