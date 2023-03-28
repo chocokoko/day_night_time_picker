@@ -71,7 +71,7 @@ class DisplayWheel extends StatelessWidget {
                 child: Text(
                   val,
                   style: _commonTimeStyles.copyWith(
-                    color: isSelected ? color : unselectedColor,
+                    color: controller.selectedItem == index ? color : unselectedColor,
                   ),
                 ),
               );
