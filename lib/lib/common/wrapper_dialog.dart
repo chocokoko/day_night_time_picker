@@ -20,18 +20,13 @@ class WrapperDialog extends StatelessWidget {
     final elevation = timeState.widget.elevation ?? ELEVATION;
 
     return Dialog(
-      insetPadding: timeState.widget.dialogInsetPadding,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       elevation: elevation,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
-        child: SizedBox(
-          width: timeState.widget.width,
-          height: timeState.widget.height,
-          child: child,
-        ),
+        child: child,
       ),
     );
   }

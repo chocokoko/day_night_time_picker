@@ -19,50 +19,60 @@ class ActionButtons extends StatelessWidget {
         height: 8,
       );
     }
-
+    const actionSheetHeight = 50.0;
+    Widget actionSheet;
     if (!timeState.widget.showCancelButton) {
-      return Expanded(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            TextButton(
-              onPressed: timeState.onOk,
-              style: timeState.widget.buttonStyle ?? defaultButtonStyle,
-              child: Text(
-                timeState.widget.okText,
-                style: timeState.widget.okStyle,
-              ),
+      actionSheet = SizedBox(
+        width: double.infinity,
+        height: actionSheetHeight,
+        child: TextButton(
+            style: TextButton.styleFrom(
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+            onPressed: timeState.onOk,
+            child: Text(timeState.widget.okText)),
+      );
+    } else {
+      actionSheet = Row(
+        children: [
+          Expanded(
+            child: SizedBox(
+              height: actionSheetHeight,
+              child: TextButton(
+                  style: TextButton.styleFrom(
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+                  onPressed: timeState.onOk,
+                  child: Text(timeState.widget.okText)),
             ),
-          ],
-        ),
+          ),
+          const SizedBox(
+            height: actionSheetHeight,
+            child: VerticalDivider(
+              width: 1,
+              color: Colors.black38,
+            ),
+          ),
+          Expanded(
+            child: SizedBox(
+              height: actionSheetHeight,
+              child: TextButton(
+                  style: TextButton.styleFrom(
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+                  onPressed: timeState.widget.onCancel,
+                  child: Text(timeState.widget.cancelText)),
+            ),
+          )
+        ],
       );
     }
 
-    return Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          TextButton(
-            style: (timeState.widget.cancelButtonStyle ??
-                    timeState.widget.buttonStyle) ??
-                defaultButtonStyle,
-            onPressed: timeState.onCancel,
-            child: Text(
-              timeState.widget.cancelText,
-              style: timeState.widget.cancelStyle,
-            ),
-          ),
-          SizedBox(width: timeState.widget.buttonsSpacing ?? 0),
-          TextButton(
-            onPressed: timeState.onOk,
-            style: timeState.widget.buttonStyle ?? defaultButtonStyle,
-            child: Text(
-              timeState.widget.okText,
-              style: timeState.widget.okStyle,
-            ),
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+      const Divider(
+      height: 1,
+      color: Colors.black38,
+    ),
+        actionSheet,
+      ],
     );
   }
 }
