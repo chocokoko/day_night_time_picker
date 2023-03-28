@@ -3,11 +3,12 @@
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:day_night_time_picker/lib/common/action_buttons.dart';
 import 'package:day_night_time_picker/lib/common/display_wheel.dart';
-import 'package:day_night_time_picker/lib/common/wrapper_container.dart';
 import 'package:day_night_time_picker/lib/common/filter_wrapper.dart';
+import 'package:day_night_time_picker/lib/common/wrapper_container.dart';
 import 'package:day_night_time_picker/lib/common/wrapper_dialog.dart';
 import 'package:day_night_time_picker/lib/state/state_container.dart';
 import 'package:flutter/material.dart';
+
 import 'ampm.dart';
 import 'daynight_banner.dart';
 import 'utils.dart';
@@ -219,6 +220,7 @@ class _DayNightTimePickerIosState extends State<DayNightTimePickerIos> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 const DayNightBanner(),
+                const SizedBox(height: 12.0,),
                 WrapperContainer(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -272,11 +274,12 @@ class _DayNightTimePickerIosState extends State<DayNightTimePickerIos> {
                           ],
                         ),
                       ),
-                      const ActionButtons(),
                       // if (!timeState!.widget.hideButtons) const ActionButtons()
                     ],
                   ),
                 ),
+                const SizedBox(height: 12.0,),
+                const ActionButtons(),
               ],
             ),
           ),

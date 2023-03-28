@@ -20,16 +20,12 @@ class WrapperContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final timeState = TimeModelBinding.of(context);
     final height = timeState.widget.is24HrFormat
-        ? 200.0
-        : timeState.widget.wheelHeight ?? 240.0;
+        ? 150.0
+        : timeState.widget.wheelHeight ?? 190.0;
 
     return Container(
       height: height,
       color: Theme.of(context).cardColor,
-      padding: const EdgeInsets.only(
-        top: 12.0,
-        bottom: 12.0,
-      ),
       child: child,
     );
   }
