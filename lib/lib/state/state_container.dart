@@ -104,22 +104,6 @@ class TimeModelBinding extends StatefulWidget {
   /// Whether to display the time from left to right or right to left.(Standard: left to right)
   final bool ltrMode;
 
-  /// Ok button's text style [TextStyle]
-  TextStyle okStyle;
-
-  /// Cancel button's text style [TextStyle]
-  TextStyle cancelStyle;
-
-  /// [ButtonStyle] is used for the [showPicker] methods
-  /// If `cancelButtonStyle` is not provided, it applies to the ok and cancel buttons
-  ButtonStyle? buttonStyle;
-
-  /// [ButtonStyle] is used for the [showPicker] methods
-  ButtonStyle? cancelButtonStyle;
-
-  /// Spacing between ok and cancel buttons
-  double? buttonsSpacing;
-
   /// The child [Widget] to render
   final Widget child;
 
@@ -181,11 +165,6 @@ class TimeModelBinding extends StatefulWidget {
     this.secondLabel,
     this.isInlineWidget = false,
     this.focusMinutePicker = false,
-    this.okStyle = const TextStyle(fontWeight: FontWeight.bold),
-    this.cancelStyle = const TextStyle(fontWeight: FontWeight.bold),
-    this.buttonStyle,
-    this.cancelButtonStyle,
-    this.buttonsSpacing,
     this.wheelHeight,
     this.hideButtons = false,
     this.disableAutoFocusToNextInput = false,
