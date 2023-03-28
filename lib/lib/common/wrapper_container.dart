@@ -28,6 +28,7 @@ class WrapperContainer extends StatelessWidget {
       color: Theme.of(context).cardColor,
       padding: const EdgeInsets.only(
         top: 12.0,
+        bottom: 12.0,
       ),
       child: child,
     );
